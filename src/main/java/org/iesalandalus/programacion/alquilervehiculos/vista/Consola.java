@@ -10,6 +10,7 @@ import javax.naming.OperationNotSupportedException;
 import org.iesalandalus.programacion.alquilervehiculos.modelo.dominio.Alquiler;
 import org.iesalandalus.programacion.alquilervehiculos.modelo.dominio.Cliente;
 import org.iesalandalus.programacion.alquilervehiculos.modelo.dominio.Turismo;
+import org.iesalandalus.programacion.alquilervehiculos.modelo.dominio.Vehiculo;
 import org.iesalandalus.programacion.utilidades.Entrada;
 
 public class Consola {
@@ -98,7 +99,7 @@ public class Consola {
 		return telefono;
 	}
 
-	public static Turismo leerTurismo() {
+	public static Vehiculo leerTurismo() {
 		String marca = leerCadena("Introduce la marca:");
 		String modelo = leerCadena("Introduce el modelo:");
 		int cilindrada = leerEntero("Indroduce la cilindrada:");
@@ -108,7 +109,7 @@ public class Consola {
 
 	public static Turismo leerTurismoMatricula() {
 		String matricula = leerCadena("Introduce la matricula:");
-		Turismo turismo = Turismo.getTurismoConMatricula(matricula);
+		Turismo turismo = Turismo.getVehiculoConMatricula(matricula);
 		return turismo;
 	}
 

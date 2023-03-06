@@ -9,15 +9,16 @@ import javax.naming.OperationNotSupportedException;
 import org.iesalandalus.programacion.alquilervehiculos.modelo.dominio.Alquiler;
 import org.iesalandalus.programacion.alquilervehiculos.modelo.dominio.Cliente;
 import org.iesalandalus.programacion.alquilervehiculos.modelo.dominio.Turismo;
+import org.iesalandalus.programacion.alquilervehiculos.modelo.dominio.Vehiculo;
 import org.iesalandalus.programacion.alquilervehiculos.modelo.negocio.Alquileres;
 import org.iesalandalus.programacion.alquilervehiculos.modelo.negocio.Clientes;
-import org.iesalandalus.programacion.alquilervehiculos.modelo.negocio.Turismos;
+import org.iesalandalus.programacion.alquilervehiculos.modelo.negocio.Vehiculos;
 
 public class Modelo {
 
 	private Clientes clientes;
 	private Alquileres alquileres;
-	private Turismos turismos;
+	private Vehiculos turismos;
 
 	public Modelo() {
 
@@ -26,7 +27,7 @@ public class Modelo {
 	public void comenzar() {
 		clientes = new Clientes();
 		alquileres = new Alquileres();
-		turismos = new Turismos();
+		turismos = new Vehiculos();
 	}
 
 	public void terminar() {
@@ -61,7 +62,7 @@ public class Modelo {
 		return new Cliente(clientes.buscar(cliente));
 	}
 
-	public Turismo buscar(Turismo turismo) {
+	public Vehiculo buscar(Vehiculo turismo) {
 		return new Turismo(turismos.buscar(turismo));
 	}
 
@@ -88,7 +89,7 @@ public class Modelo {
 		clientes.borrar(cliente);
 	}
 
-	public void borrar(Turismo turismo) throws OperationNotSupportedException {
+	public void borrar(Vehiculo turismo) throws OperationNotSupportedException {
 		for (Alquiler alquiler : alquileres.get(turismo)) {
 			borrar(alquiler);
 		}
@@ -131,7 +132,7 @@ public class Modelo {
 		return listaNueva;
 	}
 
-	public List<Alquiler> getAlquileres(Turismo turismo) {
+	public List<Alquiler> getAlquileres(Vehiculo turismo) {
 		List<Alquiler> listaNueva = new ArrayList<>();
 		for (Alquiler alquiler : alquileres.get(turismo)) {
 			listaNueva.add(new Alquiler(alquiler));
