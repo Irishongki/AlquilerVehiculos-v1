@@ -1,12 +1,13 @@
-package org.iesalandalus.programacion.alquilervehiculos.modelo.negocio;
+package org.iesalandalus.programacion.alquilervehiculos.modelo.negocio.memoria;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.naming.OperationNotSupportedException;
 import org.iesalandalus.programacion.alquilervehiculos.modelo.dominio.Vehiculo;
+import org.iesalandalus.programacion.alquilervehiculos.modelo.negocio.IVehiculos;
 
-public class Vehiculos {
+public class Vehiculos implements IVehiculos {
 
 	private List<Vehiculo> coleccionVehiculos;
 
@@ -14,28 +15,32 @@ public class Vehiculos {
 		coleccionVehiculos = new ArrayList<>();
 	}
 
+	@Override
 	public List<Vehiculo> get() {
 		return new ArrayList<>(coleccionVehiculos);
 	}
 
+	@Override
 	public int getCantidad() {
 		return coleccionVehiculos.size();
 	}
 
+	@Override
 	public void insertar(Vehiculo vehiculo) throws OperationNotSupportedException {
 		if (vehiculo == null) {
-			throw new NullPointerException("ERROR: No se puede insertar un vehiculo nulo.");
+			throw new NullPointerException("ERROR: No se puede insertar un vehículo nulo.");
 		}
 		if (coleccionVehiculos.contains(vehiculo)) {
-			throw new OperationNotSupportedException("ERROR: Ya existe un vehiculo con esa matrícula.");
+			throw new OperationNotSupportedException("ERROR: Ya existe un vehículo con esa matrícula.");
 		}
 		coleccionVehiculos.add(vehiculo);
 	}
 
+	@Override
 	public Vehiculo buscar(Vehiculo vehiculo) {
 		Vehiculo vehiculoEncontrado;
 		if (vehiculo == null) {
-			throw new NullPointerException("ERROR: No se puede buscar un vehiculo nulo.");
+			throw new NullPointerException("ERROR: No se puede buscar un vehículo nulo.");
 		}
 		int indice = coleccionVehiculos.indexOf(vehiculo);
 		if (coleccionVehiculos.contains(vehiculo)) {
@@ -46,12 +51,13 @@ public class Vehiculos {
 		return vehiculoEncontrado;
 	}
 
+	@Override
 	public void borrar(Vehiculo vehiculo) throws OperationNotSupportedException {
 		if (vehiculo == null) {
-			throw new NullPointerException("ERROR: No se puede borrar un vehiculo nulo.");
+			throw new NullPointerException("ERROR: No se puede borrar un vehículo nulo.");
 		}
 		if (!coleccionVehiculos.contains(vehiculo)) {
-			throw new OperationNotSupportedException("ERROR: No existe ningún vehiculo con esa matrícula.");
+			throw new OperationNotSupportedException("ERROR: No existe ningún vehículo con esa matrícula.");
 		}
 		coleccionVehiculos.remove(vehiculo);
 	}

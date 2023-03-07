@@ -10,22 +10,22 @@ public class Cliente {
 	private String nombre;
 	private String dni;
 	private String telefono;
-	
+
 	public Cliente(String nombre, String dni, String telefono) {
 		setNombre(nombre);
 		setDni(dni);
 		setTelefono(telefono);
 	}
-	
+
 	public Cliente(Cliente cliente) {
 		if (cliente == null) {
 			throw new NullPointerException("ERROR: No es posible copiar un cliente nulo.");
 		}
-		nombre=cliente.getNombre();
-		dni=cliente.getDni();
-		telefono=cliente.getTelefono();
+		nombre = cliente.getNombre();
+		dni = cliente.getDni();
+		telefono = cliente.getTelefono();
 	}
-	
+
 	public String getNombre() {
 		return nombre;
 	}

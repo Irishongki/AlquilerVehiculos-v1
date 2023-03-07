@@ -15,8 +15,8 @@ public class Furgoneta extends Vehiculo {
 
 	public Furgoneta(Furgoneta furgoneta) {
 		super(furgoneta);
-		pma=furgoneta.getPma();
-		plazas=furgoneta.getPlazas();
+		pma = furgoneta.getPma();
+		plazas = furgoneta.getPlazas();
 	}
 
 	public int getPma() {

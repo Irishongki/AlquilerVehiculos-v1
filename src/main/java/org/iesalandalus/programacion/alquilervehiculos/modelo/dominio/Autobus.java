@@ -12,7 +12,7 @@ public class Autobus extends Vehiculo {
 
 	public Autobus(Autobus autobus) {
 		super(autobus);
-		plazas=autobus.getPlazas();
+		plazas = autobus.getPlazas();
 	}
 
 	public int getPlazas() {
