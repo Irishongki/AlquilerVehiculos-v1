@@ -94,7 +94,7 @@ public class Alquileres implements IAlquileres {
 		coleccionAlquileres.get(coleccionAlquileres.indexOf(alquilerEncontrado)).devolver(fechaDevolucion);
 	}
 
-	private Alquiler getAlquilerAbierto(Cliente cliente) throws OperationNotSupportedException {
+	private Alquiler getAlquilerAbierto(Cliente cliente) {
 		Alquiler alquilerAbierto = null;
 		for (Iterator<Alquiler> iterator = coleccionAlquileres.iterator(); alquilerAbierto == null
 				&& iterator.hasNext();) {

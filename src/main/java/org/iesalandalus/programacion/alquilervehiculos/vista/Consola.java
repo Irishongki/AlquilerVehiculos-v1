@@ -47,8 +47,7 @@ public class Consola {
 
 	private static Integer leerEntero(String mensaje) {
 		System.out.print(mensaje);
-		int entero = Entrada.entero();
-		return entero;
+		return Entrada.entero();
 	}
 
 	private static LocalDate leerFecha(String mensaje) {
