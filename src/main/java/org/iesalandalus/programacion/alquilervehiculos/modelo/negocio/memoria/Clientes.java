@@ -68,14 +68,15 @@ public class Clientes implements IClientes {
 		if (cliente == null) {
 			throw new NullPointerException("ERROR: No se puede modificar un cliente nulo.");
 		}
-		if (!coleccionClientes.contains(cliente)) {
+		Cliente clienteBuscado = buscar(cliente);
+		if (clienteBuscado == null) {
 			throw new OperationNotSupportedException("ERROR: No existe ningún cliente con ese DNI.");
 		}
 		if (nombre != null && !nombre.isBlank()) {
-			cliente.setNombre(nombre);
+			clienteBuscado.setNombre(nombre);
 		}
 		if (telefono != null && !telefono.isBlank()) {
-			cliente.setTelefono(telefono);
+			clienteBuscado.setTelefono(telefono);
 		}
 
 	}
